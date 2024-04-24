@@ -25,17 +25,17 @@ pipeline {
           stage('Build Docker Image') {
                 steps {
                     script {
-                        sh "docker build -t ayowilfred95/devops-integration ."
+                        sh "docker build -t ayowilfred95/devops-integration:2.0 ."
                     }
                 }
             }
-        stage("Push Dockage image to Dockerhub") {
+        stage("Push Docker image to Dockerhub") {
             steps {
                 script {
                     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpassword')]) {
                     sh "docker login -u ayowilfred95 -p ${dockerhubpassword}"
                     }
-                    sh "docker push ayowilfred95/devops-integration"
+                    sh "docker push ayowilfred95/devops-integration:2.0"
                 }
             }
         }
