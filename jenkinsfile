@@ -48,6 +48,7 @@ pipeline {
 
 
 // we can use git clone instead of git checkout
+// the first pipeline used git checkout
 
 // pipeline {
 //     agent any
